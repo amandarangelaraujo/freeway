@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkp7q83vslkfh"]
+
+[ext_resource type="Texture2D" uid="uid://cq43ydbi5nfyo" path="res://Material Freeway/galinha/baixo/sprite_0.png" id="1_mjq7x"]
+[ext_resource type="Texture2D" uid="uid://bleawqvukk8gd" path="res://Material Freeway/galinha/baixo/sprite_1.png" id="2_riusf"]
+[ext_resource type="Texture2D" uid="uid://coejsjh2h7ebv" path="res://Material Freeway/galinha/baixo/sprite_2.png" id="3_xf5vq"]
+[ext_resource type="Texture2D" uid="uid://c5mulqi2v7b5h" path="res://Material Freeway/galinha/cima/sprite_0.png" id="4_6g10g"]
+[ext_resource type="Texture2D" uid="uid://la7lvaigwos6" path="res://Material Freeway/galinha/cima/sprite_1.png" id="5_v4wne"]
+[ext_resource type="Texture2D" uid="uid://373c24ms3wu4" path="res://Material Freeway/galinha/cima/sprite_2.png" id="6_1c1i3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqiwh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mjq7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_riusf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xf5vq")
+}],
+"loop": true,
+"name": &"baixo",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6g10g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v4wne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1c1i3")
+}],
+"loop": true,
+"name": &"cima",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hspdl"]
+radius = 15.0
+
+[node name="Player" type="Area2D"]
+
+[node name="animacao" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_oqiwh")
+animation = &"baixo"
+
+[node name="colisao" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_hspdl")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
