@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkp7q83vslkfh"]
+[gd_scene load_steps=11 format=3 uid="uid://dkp7q83vslkfh"]
 
+[ext_resource type="Script" path="res://Cenas/player.gd" id="1_1mrte"]
 [ext_resource type="Texture2D" uid="uid://cq43ydbi5nfyo" path="res://Material Freeway/galinha/baixo/sprite_0.png" id="1_mjq7x"]
 [ext_resource type="Texture2D" uid="uid://bleawqvukk8gd" path="res://Material Freeway/galinha/baixo/sprite_1.png" id="2_riusf"]
 [ext_resource type="Texture2D" uid="uid://coejsjh2h7ebv" path="res://Material Freeway/galinha/baixo/sprite_2.png" id="3_xf5vq"]
 [ext_resource type="Texture2D" uid="uid://c5mulqi2v7b5h" path="res://Material Freeway/galinha/cima/sprite_0.png" id="4_6g10g"]
 [ext_resource type="Texture2D" uid="uid://la7lvaigwos6" path="res://Material Freeway/galinha/cima/sprite_1.png" id="5_v4wne"]
 [ext_resource type="Texture2D" uid="uid://373c24ms3wu4" path="res://Material Freeway/galinha/cima/sprite_2.png" id="6_1c1i3"]
+[ext_resource type="AudioStream" uid="uid://drpv4b1x8iw0b" path="res://Material Freeway/sons/colide.wav" id="8_iohhb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oqiwh"]
 animations = [{
@@ -42,14 +44,18 @@ animations = [{
 radius = 15.0
 
 [node name="Player" type="Area2D"]
+script = ExtResource("1_1mrte")
 
 [node name="animacao" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_oqiwh")
 animation = &"baixo"
+frame = 2
+frame_progress = 0.801423
 
 [node name="colisao" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_hspdl")
 
 [node name="audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_iohhb")
