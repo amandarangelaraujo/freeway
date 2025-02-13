@@ -44,18 +44,20 @@ animations = [{
 radius = 15.0
 
 [node name="Player" type="Area2D"]
+collision_mask = 6
 script = ExtResource("1_1mrte")
 
-[node name="animacao" type="AnimatedSprite2D" parent="."]
+[node name="Animacao" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_oqiwh")
 animation = &"baixo"
-frame = 2
-frame_progress = 0.801423
+frame_progress = 0.214774
 
-[node name="colisao" type="CollisionShape2D" parent="."]
+[node name="Colisao" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_hspdl")
 
-[node name="audio" type="AudioStreamPlayer2D" parent="."]
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_iohhb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
