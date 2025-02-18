@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5mulqi2v7b5h" path="res://Material Freeway/galinha/cima/sprite_0.png" id="4_6g10g"]
 [ext_resource type="Texture2D" uid="uid://la7lvaigwos6" path="res://Material Freeway/galinha/cima/sprite_1.png" id="5_v4wne"]
 [ext_resource type="Texture2D" uid="uid://373c24ms3wu4" path="res://Material Freeway/galinha/cima/sprite_2.png" id="6_1c1i3"]
-[ext_resource type="AudioStream" uid="uid://drpv4b1x8iw0b" path="res://Material Freeway/sons/colide.wav" id="8_iohhb"]
+[ext_resource type="AudioStream" uid="uid://v4ntuy6bj02e" path="res://Material Freeway/sons/ponto.wav" id="8_ry3y1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oqiwh"]
 animations = [{
@@ -50,14 +50,14 @@ script = ExtResource("1_1mrte")
 [node name="Animacao" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_oqiwh")
-animation = &"baixo"
-frame_progress = 0.214774
+animation = &"cima"
+frame_progress = 0.303057
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_hspdl")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_iohhb")
+stream = ExtResource("8_ry3y1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

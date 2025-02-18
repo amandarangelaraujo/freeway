@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://b1iduvrx2mm18"]
+[gd_scene load_steps=18 format=3 uid="uid://b1iduvrx2mm18"]
 
 [ext_resource type="Texture2D" uid="uid://6qn31ghycbn" path="res://Material Freeway/carros/coches (1).png" id="1_ow7dp"]
+[ext_resource type="Script" path="res://Cenas/carros.gd" id="1_sdhu5"]
 [ext_resource type="Texture2D" uid="uid://ke3x5jk5525n" path="res://Material Freeway/carros/coches (2).png" id="2_sa2aw"]
 [ext_resource type="Texture2D" uid="uid://cx63ir6i45g5j" path="res://Material Freeway/carros/coches (3).png" id="3_qt2wc"]
 [ext_resource type="Texture2D" uid="uid://brt55fgpqehch" path="res://Material Freeway/carros/coches (4).png" id="4_hsbnf"]
@@ -135,6 +136,7 @@ size = Vector2(50, 34)
 
 [node name="Carros" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_sdhu5")
 
 [node name="Animacao" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
@@ -149,3 +151,5 @@ shape = SubResource("RectangleShape2D_7ms7t")
 position = Vector2(-3.8147e-06, 4.76837e-07)
 scale = Vector2(1.04167, 1)
 rect = Rect2(-24, -17, 48, 34)
+
+[connection signal="screen_exited" from="Notificador" to="." method="_on_notificador_screen_exited"]

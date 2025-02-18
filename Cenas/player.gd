@@ -3,6 +3,7 @@ extends Area2D
 var screen_size: Vector2
 var posicao_inicial: Vector2 = Vector2(640, 690)
 signal pontua
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -35,10 +36,14 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	print("Colisão detectada")
 	if body.name == "LinhaChegada":
+		position = posicao_inicial
 		emit_signal("pontua")
 	else:
 		$Audio.play()
-		position = posicao_inicial
 	
 		
-	pass # Replace with function body.
+	
+
+
+#func _on_audio_tema_ready() -> void:
+	
