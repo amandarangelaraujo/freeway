@@ -48,7 +48,8 @@ collision_mask = 6
 script = ExtResource("1_1mrte")
 
 [node name="Animacao" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+position = Vector2(0.349999, -0.15)
+scale = Vector2(0.306863, 0.302174)
 sprite_frames = SubResource("SpriteFrames_oqiwh")
 animation = &"cima"
 frame_progress = 0.303057

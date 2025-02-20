@@ -10,3 +10,12 @@ func _ready() -> void:
 
 func _on_notificador_screen_exited() -> void:
 	queue_free()
+
+
+#tentar aqui
+func _on_body_entered(body: Node) -> void:
+	print("Galinha atropelada")
+	
+	
+
+	

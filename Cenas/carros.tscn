@@ -132,9 +132,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ms7t"]
-size = Vector2(50, 34)
+size = Vector2(47, 32)
 
 [node name="Carros" type="RigidBody2D"]
+collision_layer = 4
 gravity_scale = 0.0
 script = ExtResource("1_sdhu5")
 
@@ -145,11 +146,13 @@ sprite_frames = SubResource("SpriteFrames_6ix7w")
 animation = &"carro09"
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_7ms7t")
 
 [node name="Notificador" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-3.8147e-06, 4.76837e-07)
-scale = Vector2(1.04167, 1)
+position = Vector2(1.19209e-07, 0)
+scale = Vector2(0.979168, 0.941176)
 rect = Rect2(-24, -17, 48, 34)
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="Notificador" to="." method="_on_notificador_screen_exited"]

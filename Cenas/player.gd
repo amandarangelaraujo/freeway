@@ -36,10 +36,12 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	print("Colisão detectada")
 	if body.name == "LinhaChegada":
-		position = posicao_inicial
 		emit_signal("pontua")
 	else:
+		position = posicao_inicial
 		$Audio.play()
+		
+
 	
 		
 	
