@@ -5,6 +5,10 @@ var pistas_rapidas_y = [104, 272, 488]
 var pistas_lentas_y = [160, 216, 324, 384, 438, 544, 600]
 var score = 0
 
+#var sobre o timer do jogo
+var time_left: int = 136
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +16,8 @@ func _ready() -> void:
 	$HUD/Mensagem.text = ""
 	$HUD/Button.hide()
 	$AudioTema.play()
+	$Timer.start()
+	$HUD/TimerLabel.text = str(time_left)
 	randomize()
 	
 
@@ -42,6 +48,7 @@ func _on_timer_carros_lentos_timeout() -> void:
 
 
 func _on_player_pontua() -> void:
+	$Player.position = $Player.posicao_inicial
 	if score <= 10:
 		score+=1
 		$HUD/Placar.text = str(score)
@@ -64,7 +71,29 @@ func _on_hud_reinicia() -> void:
 	$TimerCarrosRapidos.start()
 	$TimerCarrosLentos.start()
 	$AudioTema.play()
+	time_left = 136
 	$AudioVitoria.stop()
-	$Player.speed = 8 #Minha galinha fica lenda depois!!
+	$Player.speed = 100 
+	$Timer.start()
 	
 	
+	
+
+
+func _on_timer_timeout() -> void:
+	time_left -= 1
+	$HUD/TimerLabel.text = str(time_left)
+	if time_left == 0:
+		$Timer.stop()
+		score = 0
+		$HUD/Mensagem.text = "Que galinha lenta você é!"
+		$HUD/Button.show()
+		$TimerCarrosRapidos.stop()
+		$TimerCarrosLentos.stop()
+		$AudioTema.stop()
+		$AudioVitoria.play()
+		$Player.speed = 0
+		$Player.position = $Player.posicao_inicial
+	
+		
+		

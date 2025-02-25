@@ -9,7 +9,7 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	position = posicao_inicial
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	var velocity= Vector2.ZERO
 	
@@ -18,14 +18,25 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_down"):  #Galinha deveria ir para baixo
 		velocity.y += 1
 	
+	if Input.is_action_pressed("ui_left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("ui_right"):
+		velocity.x += 1
+	
 	if velocity != Vector2.ZERO:
 		velocity = velocity.normalized() * speed
 	position += velocity * delta
+	#não deixar a galinha sair da tela
 	position.y = clamp(position.y, 0.0, screen_size.y)
+	position.x = clamp(position.x, 0.0, screen_size.x)
 	
 	if velocity.y > 0:
 		$Animacao.play("baixo")
 	elif velocity.y < 0:
+		$Animacao.play("cima")
+	elif velocity.x > 0:
+		$Animacao.play("cima")
+	elif velocity.x < 0:
 		$Animacao.play("cima")
 	else:
 		$Animacao.stop()
