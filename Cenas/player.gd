@@ -31,13 +31,13 @@ func _process(delta: float) -> void:
 	position.x = clamp(position.x, 0.0, screen_size.x)
 	
 	if velocity.y > 0:
-		$Animacao.play("baixo")
+		$Animacao.play("sapo")
 	elif velocity.y < 0:
-		$Animacao.play("cima")
+		$Animacao.play("sapo")
 	elif velocity.x > 0:
-		$Animacao.play("cima")
+		$Animacao.play("sapo")
 	elif velocity.x < 0:
-		$Animacao.play("cima")
+		$Animacao.play("sapo")
 	else:
 		$Animacao.stop()
 	

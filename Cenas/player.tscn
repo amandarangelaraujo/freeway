@@ -1,58 +1,58 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkp7q83vslkfh"]
+[gd_scene load_steps=10 format=3 uid="uid://dkp7q83vslkfh"]
 
 [ext_resource type="Script" path="res://Cenas/player.gd" id="1_1mrte"]
-[ext_resource type="Texture2D" uid="uid://cq43ydbi5nfyo" path="res://Material Freeway/galinha/baixo/sprite_0.png" id="1_mjq7x"]
-[ext_resource type="Texture2D" uid="uid://bleawqvukk8gd" path="res://Material Freeway/galinha/baixo/sprite_1.png" id="2_riusf"]
-[ext_resource type="Texture2D" uid="uid://coejsjh2h7ebv" path="res://Material Freeway/galinha/baixo/sprite_2.png" id="3_xf5vq"]
-[ext_resource type="Texture2D" uid="uid://c5mulqi2v7b5h" path="res://Material Freeway/galinha/cima/sprite_0.png" id="4_6g10g"]
-[ext_resource type="Texture2D" uid="uid://la7lvaigwos6" path="res://Material Freeway/galinha/cima/sprite_1.png" id="5_v4wne"]
-[ext_resource type="Texture2D" uid="uid://373c24ms3wu4" path="res://Material Freeway/galinha/cima/sprite_2.png" id="6_1c1i3"]
+[ext_resource type="Texture2D" uid="uid://cw2po4aq7ydm6" path="res://Material Freeway/2d_animation_frog_spritesheet.webp" id="2_n8sa4"]
 [ext_resource type="AudioStream" uid="uid://v4ntuy6bj02e" path="res://Material Freeway/sons/ponto.wav" id="8_ry3y1"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_oqiwh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra5a6"]
+atlas = ExtResource("2_n8sa4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvwtv"]
+atlas = ExtResource("2_n8sa4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3efg"]
+atlas = ExtResource("2_n8sa4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw7hf"]
+atlas = ExtResource("2_n8sa4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jy3hb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_mjq7x")
+"texture": SubResource("AtlasTexture_ra5a6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_riusf")
+"texture": SubResource("AtlasTexture_xvwtv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_xf5vq")
+"texture": SubResource("AtlasTexture_x3efg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw7hf")
 }],
 "loop": true,
-"name": &"baixo",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_6g10g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_v4wne")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_1c1i3")
-}],
-"loop": true,
-"name": &"cima",
-"speed": 8.0
+"name": &"sapo",
+"speed": 11.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hspdl"]
-radius = 15.0
+radius = 16.1245
 
 [node name="Player" type="Area2D"]
 collision_mask = 6
 script = ExtResource("1_1mrte")
 
 [node name="Animacao" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.349999, -0.15)
-scale = Vector2(0.306863, 0.302174)
-sprite_frames = SubResource("SpriteFrames_oqiwh")
-animation = &"cima"
-frame_progress = 0.303057
+position = Vector2(-3.8147e-06, 0)
+rotation = 6.28319
+scale = Vector2(0.578125, 0.484375)
+sprite_frames = SubResource("SpriteFrames_jy3hb")
+animation = &"sapo"
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

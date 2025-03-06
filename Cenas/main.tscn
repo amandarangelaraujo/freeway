@@ -17,12 +17,12 @@ script = ExtResource("1_36c5o")
 texture = ExtResource("1_k51ya")
 centered = false
 
+[node name="LinhaChegada" parent="." instance=ExtResource("1_slqdm")]
+position = Vector2(640, 64)
+
 [node name="Player2" parent="." instance=ExtResource("9_4a121")]
 position = Vector2(640, 690)
 scale = Vector2(0.3, 0.3)
-
-[node name="LinhaChegada" parent="." instance=ExtResource("1_slqdm")]
-position = Vector2(640, 64)
 
 [node name="Player" parent="." instance=ExtResource("2_cfnea")]
 position = Vector2(470, 684)

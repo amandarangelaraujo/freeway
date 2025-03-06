@@ -143,7 +143,7 @@ script = ExtResource("1_sdhu5")
 rotation = 1.5708
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_6ix7w")
-animation = &"carro09"
+animation = &"carro01"
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)

@@ -30,8 +30,10 @@ func _on_timer_carros_rapidos_timeout() -> void:
 	var carro = cena_carros.instantiate()  #instanciando aquii
 	add_child(carro) #adicionando como filho da cena main
 	var pista_y = pistas_rapidas_y[randi_range(0, pistas_rapidas_y.size()-1)]
-	carro.position = Vector2(-10, pista_y)
-	carro.set_linear_velocity(Vector2(randf_range(700, 720), 0))  #o que essa linha faz?
+	var screen_width = get_tree().root.get_viewport().get_visible_rect().size.x
+	carro.position = Vector2(screen_width + 10, pista_y)
+	#carro.position = Vector2(10, pista_y)
+	carro.set_linear_velocity(Vector2(randf_range(-700, -720), 0))  #o que essa linha faz?
 	carro.set_linear_damp(0.0)
 	
 	
