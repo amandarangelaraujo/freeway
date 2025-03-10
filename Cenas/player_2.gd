@@ -1,5 +1,5 @@
 extends Area2D
-@export var speed: float = 100.0
+@export var speed: float = 250.0
 var screen_size: Vector2
 var posicao_inicial: Vector2 = Vector2(340, 690)
 signal pontua
@@ -14,14 +14,14 @@ func _process(delta: float) -> void:
 	var velocity= Vector2.ZERO
 	
 	if Input.is_action_pressed("move_up"): 		#quero que a minha galinha se desloque para cima
-		velocity.y -= 1
+		velocity.y -= 10
 	if Input.is_action_pressed("move_down"):  #Galinha deveria ir para baixo
-		velocity.y += 1
+		velocity.y += 10
 	
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+		velocity.x -= 2
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		velocity.x += 2
 	
 	if velocity != Vector2.ZERO:
 		velocity = velocity.normalized() * speed
@@ -47,12 +47,11 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	print("Colisão detectada")
 	if body.name == "LinhaChegada":
+		print("galinhaaa")
 		emit_signal("pontua")
 	else:
 		position = posicao_inicial
 		$Audio.play()
-		
-
 	
 		
 	
@@ -60,3 +59,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 #func _on_audio_tema_ready() -> void:
 	
+
+
+func _on_pontua() -> void:
+	pass # Replace with function body.

@@ -15,10 +15,11 @@ func _ready() -> void:
 	$HUD/Placar.text = str(score)
 	$HUD/Mensagem.text = ""
 	$HUD/Button.hide()
-	$AudioTema.play()
+	$Audio2.play()
 	$Timer.start()
 	$HUD/TimerLabel.text = str(time_left)
 	randomize()
+	score=0
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,6 +52,7 @@ func _on_timer_carros_lentos_timeout() -> void:
 
 func _on_player_pontua() -> void:
 	$Player.position = $Player.posicao_inicial
+	$Player2.position = $Player2.posicao_inicial
 	if score <= 10:
 		score+=1
 		$HUD/Placar.text = str(score)
@@ -58,13 +60,14 @@ func _on_player_pontua() -> void:
 	if score == 10:
 		$HUD/Mensagem.text = "Parabéns, você é um galinha rápida!"
 		$HUD/Button.show()
+		score=0
 		$TimerCarrosRapidos.stop()
 		$TimerCarrosLentos.stop()
-		$AudioTema.stop()
+		$Audio2.stop()
 		$AudioVitoria.play()
 		$Player.speed = 0
 		$Player.position = $Player.posicao_inicial
-		
+		$Player2.position = $Player2.posicao_inicial
 		
 func _on_hud_reinicia() -> void:
 	score = 0
@@ -72,10 +75,10 @@ func _on_hud_reinicia() -> void:
 	$HUD/Button.hide()
 	$TimerCarrosRapidos.start()
 	$TimerCarrosLentos.start()
-	$AudioTema.play()
+	$Audio2.play()
 	time_left = 136
 	$AudioVitoria.stop()
-	$Player.speed = 100 
+	$Player.speed = 100000
 	$Timer.start()
 	
 	
@@ -92,10 +95,14 @@ func _on_timer_timeout() -> void:
 		$HUD/Button.show()
 		$TimerCarrosRapidos.stop()
 		$TimerCarrosLentos.stop()
-		$AudioTema.stop()
+		$Audio2.stop()
 		$AudioVitoria.play()
 		$Player.speed = 0
 		$Player.position = $Player.posicao_inicial
 	
 		
 		
+
+
+func _on_pontua() -> void:
+	pass # Replace with function body.

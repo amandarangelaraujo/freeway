@@ -1,5 +1,5 @@
 extends Area2D
-@export var speed: float = 100.0
+@export var speed: float = 250.0
 var screen_size: Vector2
 var posicao_inicial: Vector2 = Vector2(640, 690)
 signal pontua
@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	print("Colisão detectada")
 	if body.name == "LinhaChegada":
+		print("sapooo")
 		emit_signal("pontua")
 	else:
 		position = posicao_inicial

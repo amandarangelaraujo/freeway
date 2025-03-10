@@ -55,6 +55,7 @@ sprite_frames = SubResource("SpriteFrames_jy3hb")
 animation = &"sapo"
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
+visibility_layer = 14
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_hspdl")
 

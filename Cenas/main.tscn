@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jgxsahc0bchn"]
+[gd_scene load_steps=11 format=3 uid="uid://jgxsahc0bchn"]
 
 [ext_resource type="Script" path="res://Cenas/main.gd" id="1_36c5o"]
 [ext_resource type="Texture2D" uid="uid://ciq4pnw816am5" path="res://Material Freeway/wallpaperfreeway.png" id="1_k51ya"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://v4ntuy6bj02e" path="res://Material Freeway/sons/ponto.wav" id="6_c2t4u"]
 [ext_resource type="AudioStream" uid="uid://b5uow7r81nn10" path="res://Material Freeway/sons/ganhou.wav" id="7_pyvyj"]
 [ext_resource type="PackedScene" uid="uid://b2wvy1f2friwl" path="res://Cenas/player_2.tscn" id="9_4a121"]
+[ext_resource type="AudioStream" uid="uid://dnlmc6kgq2k72" path="res://Material Freeway/sons/Dark Fortress Zone.mp3" id="10_gke0g"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_36c5o")
@@ -50,6 +51,10 @@ stream = ExtResource("7_pyvyj")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Audio2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_gke0g")
+
+[connection signal="pontua" from="Player2" to="." method="_on_player_pontua"]
 [connection signal="pontua" from="Player" to="." method="_on_player_pontua"]
 [connection signal="reinicia" from="HUD" to="." method="_on_hud_reinicia"]
 [connection signal="timeout" from="TimerCarrosRapidos" to="." method="_on_timer_carros_rapidos_timeout"]
