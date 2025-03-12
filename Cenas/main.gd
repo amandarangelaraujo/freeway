@@ -3,7 +3,7 @@ extends Node
 var cena_carros = preload("res://Cenas/carros.tscn")
 var pistas_rapidas_y = [104, 272, 488]
 var pistas_lentas_y = [160, 216, 324, 384, 438, 544, 600]
-var score = 0
+var score = 8
 
 #var sobre o timer do jogo
 var time_left: int = 136
@@ -19,7 +19,7 @@ func _ready() -> void:
 	$Timer.start()
 	$HUD/TimerLabel.text = str(time_left)
 	randomize()
-	score=0
+	score=8
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -60,7 +60,6 @@ func _on_player_pontua() -> void:
 	if score == 10:
 		$HUD/Mensagem.text = "Parabéns, você é um galinha rápida!"
 		$HUD/Button.show()
-		score=0
 		$TimerCarrosRapidos.stop()
 		$TimerCarrosLentos.stop()
 		$Audio2.stop()
@@ -70,7 +69,8 @@ func _on_player_pontua() -> void:
 		$Player2.position = $Player2.posicao_inicial
 		
 func _on_hud_reinicia() -> void:
-	score = 0
+	score=0
+	$HUD/Placar.text = str(score)
 	$HUD/Mensagem.text = ""
 	$HUD/Button.hide()
 	$TimerCarrosRapidos.start()
